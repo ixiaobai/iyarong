@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>LOVE HOUSE</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="v_css/default_dev.css" type="text/css" rel="stylesheet">
+	<link href="v_css/fonts.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="v_js/jquery.js"></script>
+	<script type="text/javascript" src="v_js/garden.js"></script>
+    <script type="text/javascript" src="v_js/functions_dev.js"></script>
+    <!-- <bgsound loop="1" src="../back.wav"></bgsound> -->
+</head>
+
+<body  style="background: url(background.jpg) repeat-y center center fixed;
+							-webkit-background-size: cover; -moz-background-size: cover;
+							-o-background-size: cover; background-size: cover;">
+	<div id="mainDiv" style="z-index:0">
+		<div id="content">
+			<div id="code" onclick="hideVideo()">
+				<span class="keyword">亲爱的, </span><br />
+				<span class="keyword">这个程序是我为我们两写的</span>，<br />
+				<span class="keyword">用来记录我们的爱情和成长的。</span><br />
+				<span class="keyword">我想你会喜欢的。</span><br />
+				<br /><br />
+				<span class="keyword">这也是我送给你的</span><span class="keyword">23岁的生日礼物</span><br />
+				<br /><br />
+				<span class="keyword">因为我觉得你是那么的清新脱俗</span><span class="space"/>
+				<br />
+				<span class="keyword">给你送太物质的东西你又不喜欢</span><span class="space"/><span class="keyword">所以我推掉了和同事接的私活，我想为我们做些事情。</span><br />
+				<br /><br /><br /></br />
+				<span class="placeholder" /><span class="placeholder" /><span class="placeholder" /><span class="placeholder" />
+					<span class="keyword">—— 爱你的亮亮<a href="../2/Love.html">(点我进下一页了(*^__^*))</a></span>
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						和你一起坠入爱河，我们在一起好像才不久
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						但我希望过很久很久以后， <br />你还是那么的爱我。<br/><br />
+						<div class="signature">生日快乐！亲爱的</div>
+					</div>
+					<div id="dog">
+						<a onclick="showVideo()">
+							<img id="dogImg" src="dog_small.png" onmouseover="dogMouseOver()">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			MADE © 2016 baiqy6@gmial.com 2016-永远<br />
+		</div>
+	</div>
+	<div id="videoDiv">
+			<video id="tiffanyVideo" style="width: 100%; preload="auto" loop="loop" controls="controls"">
+					<source src="http://media.tiffany.com/is/content/Tiffany/Holiday_Video_Homepage_MP4" type="video/mp4">
+					<source src="http://media.tiffany.com/is/content/Tiffany/Holiday_Video_Homepage_webm" type="video/webm"
+			</video>
+        </div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.toLocaleString();
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation(1);
+			}, 430);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 50);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
